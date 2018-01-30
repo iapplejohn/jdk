@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration debug="true">
+	<property resource="conf/app.conf" />
+	<!-- 输出到控制台 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${log.path}/${app.name}.log</File>
+		<!-- 日志文件rolling策略 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.path}/${app.name}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+			<maxHistory>5</maxHistory>
+			<!-- 日志文件rolling触发策略 -->
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>350MB</MaxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<!-- 日志输出格式 -->
+		<encoder>
+			<pattern>%d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.jemmy">
+		<level value="${log.level.app}" />
+	</logger>
+
+	<root level="${log.level.other}">
+		<appender-ref ref="${log.appender}" />
+	</root>
+
+</configuration>
