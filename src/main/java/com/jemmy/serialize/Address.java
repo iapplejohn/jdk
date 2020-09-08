@@ -7,6 +7,8 @@
  */
 package com.jemmy.serialize;
 
+import java.io.Serializable;
+
 /**
  * <pre>
  * Address
@@ -14,7 +16,7 @@ package com.jemmy.serialize;
  * @author Cheng Zhujiang
  * @date 2017/10/28
  */
-public class Address {
+public class Address implements Serializable {
 
     private String detail;
 

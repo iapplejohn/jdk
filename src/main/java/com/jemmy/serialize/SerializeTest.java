@@ -1,6 +1,6 @@
 /*
  * Copyright (C), 2014-2017, 杭州盎然科技有限公司
- * FileName: Test.java
+ * FileName: SerializeTest.java
  * Author:   Cheng Zhujiang
  * Date:     2017/10/28 12:09
  * Description: 
@@ -11,12 +11,12 @@ import java.io.*;
 
 /**
  * <pre>
- * Test
+ * SerializeTest
  *
  * @author Cheng Zhujiang
  * @date 2017/10/28
  */
-public class Test {
+public class SerializeTest {
 
     public static void main(String[] args) throws IOException {
         Address address = new Address();
@@ -24,8 +24,9 @@ public class Test {
         Person person = new Person();
         person.setName("good");
         person.setAddress(address);
+        person.setGenderEnum(GenderEnum.MALE);
 
-        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("D://person.obj")));
+        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("person.obj")));
         oos.writeObject(person);
         oos.close();
     }
