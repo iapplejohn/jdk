@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.4.6</version>
+            <version>3.4.14</version>
             <exclusions>
                 <exclusion><!-- 解决与框架中选用的 logback 冲突问题 -->
                     <groupId>org.slf4j</groupId>
