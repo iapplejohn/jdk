@@ -13,6 +13,7 @@
         <joda-time.version>2.10.2</joda-time.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <commons-io.version>2.6</commons-io.version>
+        <groovy-all.version>2.4.15</groovy-all.version>
     </properties>
 
     <dependencies>
@@ -197,7 +198,14 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.43</version>
+            <version>1.2.70</version>
+        </dependency>
+
+        <!-- groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy-all.version}</version>
         </dependency>
 
         <!-- for LDAP reference server -->
@@ -268,6 +276,18 @@
             <artifactId>commons-codec</artifactId>
             <version>1.13</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+        </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>RELEASE</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
 
     <build>

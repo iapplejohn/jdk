@@ -1,6 +1,6 @@
 /*
  * Copyright (C), 2014-2017, 杭州盎然科技有限公司
- * FileName: CheckRefQueue.java
+ * FileName: CheckRefQueueThread.java
  * Author:   Cheng Zhujiang
  * Date:     2017/8/13 15:09
  * Description: 
@@ -11,12 +11,12 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 
 /**
- * CheckRefQueue
+ * CheckRefQueueThread
  *
  * @author Cheng Zhujiang
  * @date 2017/8/13
  */
-public class CheckRefQueue extends Thread {
+public class CheckRefQueueThread extends Thread {
 
     ReferenceQueue<MyObject> refQueue;
 

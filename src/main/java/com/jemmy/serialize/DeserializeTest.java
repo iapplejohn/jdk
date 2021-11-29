@@ -18,8 +18,9 @@ import java.io.OutputStreamWriter;
 public class DeserializeTest {
 
     public static void main(String[] args) throws IOException {
-        byte[] bytes = toBytes();
-        System.out.println(bytes);
+//        byte[] bytes = toBytes();
+//        System.out.println(bytes);
+        test2();
     }
 
     private static void test1() {
@@ -27,6 +28,20 @@ public class DeserializeTest {
             ObjectInputStream ois = new ObjectInputStream(input);
             Person person = (Person) ois.readObject();
             System.out.println("person: " + person);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void test2() {
+        try (BufferedInputStream input = new BufferedInputStream(new FileInputStream("servers.db"))) {
+            ObjectInputStream ois = new ObjectInputStream(input);
+            Object obj = ois.readObject();
+            System.out.println("obj: " + obj);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

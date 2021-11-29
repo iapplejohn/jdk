@@ -22,7 +22,7 @@ public class WeakRefTest {
         MyObject obj = new MyObject();
         ReferenceQueue<MyObject> weakQueue = new ReferenceQueue<>();
         WeakReference<MyObject> weakRef = new WeakReference<MyObject>(obj, weakQueue);
-        CheckRefQueue check = new CheckRefQueue();
+        CheckRefQueueThread check = new CheckRefQueueThread();
         check.setRefQueue(weakQueue);
         check.start();
         obj = null;

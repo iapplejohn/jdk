@@ -6,15 +6,15 @@ package com.jemmy.reflect;
  */
 public class Line2 {
 
-    static {
-        System.out.println("静态代码块执行：loading line");
-    }
-
     public static String s = getString();
 
     private static String getString() {
         System.out.println("给静态变量赋值的静态方法执行：loading line");
         return "ss";
+    }
+
+    static {
+        System.out.println("静态代码块执行：loading line");
     }
 
     public static void test() {
