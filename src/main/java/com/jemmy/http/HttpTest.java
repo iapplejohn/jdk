@@ -26,7 +26,7 @@ public class HttpTest {
         Headers headers = headerBuilder.build();
 
         StringBuilder builder = new StringBuilder(128);
-        builder.append("https://gw.oalur.com/v2/oalur/v1/asin/keyword?keyword=")
+        builder.append("https://gw.xxx.com/v2/xxx/v1/asin/keyword?keyword=")
             .append(keyword).append("&region=").append(region).append("&page_no=").append(pageNo);
 
         Request request = new Request.Builder()

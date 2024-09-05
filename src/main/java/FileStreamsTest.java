@@ -21,7 +21,7 @@ public class FileStreamsTest {
     private static final Map<String, Set<String>> fileListMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        recursive(Paths.get("/data/oalur"));
+        recursive(Paths.get("/data/xxx"));
         System.out.println(fileListMap);
 
         getTimestamp();

@@ -33,7 +33,7 @@ public class OkHttpClientUtil {
 
         okHttpClient = new OkHttpClient.Builder()
             .readTimeout(70, TimeUnit.SECONDS)
-//            .sslSocketFactory(sslSocketFactory, trustManager)
+            .sslSocketFactory(sslSocketFactory, trustManager)
             .build();
     }
 
@@ -59,6 +59,16 @@ public class OkHttpClientUtil {
             return sslContext.getSocketFactory();
         } catch (GeneralSecurityException e) {
             throw new IllegalStateException("The system has no TLSv1.2"); // The system has no TLS. Just give up.
+        }
+    }
+
+    private static SSLSocketFactory tlsV1_3SslSocketFactory(X509TrustManager trustManager) {
+        try {
+            SSLContext sslContext = SSLContext.getInstance("TLSv1.3");
+            sslContext.init(null, new TrustManager[] { trustManager }, null);
+            return sslContext.getSocketFactory();
+        } catch (GeneralSecurityException e) {
+            throw new IllegalStateException("The system has no TLSv1.3"); // The system has no TLS. Just give up.
         }
     }
 

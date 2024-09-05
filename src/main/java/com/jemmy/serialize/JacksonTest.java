@@ -6,6 +6,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author zhujiang.cheng
@@ -73,6 +76,62 @@ public class JacksonTest {
         person.setName("fabulous");
         person.setAddress(address);
         return person;
+    }
+
+    // ------------ 属性特殊格式测试 ----------------
+    @Test
+    public void aCodeTest() {
+        String json = "{\"aCode\":\"Terrific\"}";
+        ACodeObj aCodeObj = JSON.parseObject(json, ACodeObj.class);
+        Assert.assertNotNull(aCodeObj.getACode());
+    }
+
+    @Data
+    static class ACodeObj {
+
+        private String aCode;
+    }
+
+    @Test
+    public void aTest() {
+        String json = "{\"A\":\"Terrific\"}";
+        AObj aObj = JSON.parseObject(json, AObj.class);
+        Assert.assertNotNull(aObj.getA());
+    }
+
+    @Data
+    static class AObj {
+
+        private String A;
+    }
+
+    // 如果有 urlObj，报错：
+    // java.lang.NoClassDefFoundError: com/jemmy/serialize/JacksonTest$URLObj (wrong name: com/jemmy/serialize/JacksonTest$urlObj2)
+    // 如果没有 urlObj，属性赋值失败
+    @Test
+    public void URLTest() {
+        String json = "{\"URL\":\"Terrific\"}";
+        URLObj urlObj = JSON.parseObject(json, URLObj.class);
+        Assert.assertNotNull(urlObj.getURL());
+    }
+
+    @Data
+    static class URLObj {
+
+        private String URL;
+    }
+
+    @Test
+    public void urlTest() {
+        String json = "{\"url\":\"Terrific\"}";
+        urlObj2 urlObj2 = JSON.parseObject(json, urlObj2.class);
+        Assert.assertNotNull(urlObj2.getUrl());
+    }
+
+    @Data
+    static class urlObj2 {
+
+        private String url;
     }
 
 }

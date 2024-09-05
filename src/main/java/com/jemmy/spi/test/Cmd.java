@@ -1,4 +1,4 @@
-package com.jemmy.spi;
+package com.jemmy.spi.test;
 
 /**
  * @author zhujiang.cheng

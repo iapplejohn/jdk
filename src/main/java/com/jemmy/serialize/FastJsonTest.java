@@ -3,7 +3,9 @@ package com.jemmy.serialize;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.parser.ParserConfig;
+import lombok.Data;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author zhujiang.cheng
@@ -69,5 +71,58 @@ public class FastJsonTest {
         person.setName("good");
         person.setAddress(address);
         return person;
+    }
+
+    // ------------ 属性特殊格式测试 ----------------
+    @Test
+    public void aCodeTest() {
+        String json = "{\"aCode\":\"Terrific\"}";
+        ACodeObj aCodeObj = JSON.parseObject(json, ACodeObj.class);
+        Assert.assertNotNull(aCodeObj.getACode());
+    }
+
+    @Data
+    static class ACodeObj {
+
+        private String aCode;
+    }
+
+    @Test
+    public void aTest() {
+        String json = "{\"A\":\"Terrific\"}";
+        AObj aObj = JSON.parseObject(json, AObj.class);
+        Assert.assertNotNull(aObj.getA());
+    }
+
+    @Data
+    static class AObj {
+
+        private String A;
+    }
+
+    @Test
+    public void URLTest() {
+        String json = "{\"URL\":\"Terrific\"}";
+        URLObj urlObj = JSON.parseObject(json, URLObj.class);
+        Assert.assertNotNull(urlObj.getURL());
+    }
+
+    @Data
+    static class URLObj {
+
+        private String URL;
+    }
+
+    @Test
+    public void urlTest() {
+        String json = "{\"URL\":\"Terrific\"}";
+        urlObj urlObj = JSON.parseObject(json, urlObj.class);
+        Assert.assertNotNull(urlObj.getUrl());
+    }
+
+    @Data
+    static class urlObj {
+
+        private String url;
     }
 }

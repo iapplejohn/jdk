@@ -17,9 +17,9 @@ public class DecryptViaHttpTest {
 
     private static final OkHttpClient client = new OkHttpClient();
 
-    private String accessToken = "3UBpPKocxv8R9nHJ";
+    private String accessToken = "xxx";
 
-    private String endpoint = "https://cipher.pingpongx.com:443/decryptForJdbc";
+    private String endpoint = "https://cipher.xxx.com:443/decryptForJdbc";
 
     private String appName = "recon-core";
 

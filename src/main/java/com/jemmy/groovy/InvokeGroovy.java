@@ -5,7 +5,7 @@ import groovy.lang.GroovyClassLoader;
 
 public class InvokeGroovy {
     public static void main(String[] args) {
-        ClassLoader cl = new InvokeGroovy().getClass().getClassLoader();
+        ClassLoader cl = InvokeGroovy.class.getClassLoader();
         GroovyClassLoader groovyCl = new GroovyClassLoader(cl);
         try {
             //从文件中读取，将实现IFoo接口的groclass Foo implements IFoo {public Object run(Object foo) {return 2+2>1}}ovy类写在一个groovy文件中
