@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 测试正则
+ * 测试正则 abc
  * 正则的括号越多，栈深度越深，数据量大时，容易导致栈溢出
  *
  * @author zhujiang.cheng
