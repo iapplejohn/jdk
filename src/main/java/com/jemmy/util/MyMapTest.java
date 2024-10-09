@@ -30,6 +30,7 @@ public class MyMapTest {
         // map.put("key1", "key3", obj); // 抛异常
         map.put("key3", "key4", obj4);
         Assert.assertSame(map.get("key1"), map.get("key2"));
+        Assert.assertSame(map.get("key3"), map.get("key4"));
 
         map.remove("key1");
         Object obj2 = map.get("key2");
