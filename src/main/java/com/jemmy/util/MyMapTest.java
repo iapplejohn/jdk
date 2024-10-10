@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * 测试自定义 Map7
+ * 测试自定义 Map8
  *
  * @author zhujiang.cheng
  * @since 2024/9/13
