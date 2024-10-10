@@ -14,7 +14,6 @@ public class MyMapTest {
     @Test
     public void testMyMap() {
         Object obj = new Object();
-        Object objN = new Object();
         MyMap<String, Object> map = new MyMap<>();
         map.put("key1", "key2", obj);
         System.out.println(map.get("key1") == map.get("key2"));
