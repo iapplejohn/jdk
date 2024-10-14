@@ -22,6 +22,7 @@ public class MyMapTest {
         System.out.println("obj2 = " + obj2);
     }
 
+
     @Test
     public void testMyMapO1() {
         Object obj = new Object();
